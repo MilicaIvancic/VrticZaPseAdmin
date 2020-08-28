@@ -1,0 +1,74 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">{{userDetails.firstName}} <small>{{userDetails.surname}}</small></h2>
+<hr>
+
+
+ <div class="col col-sm-14">
+            <div class="card mb-3">
+                <div class="card-header">
+                   O {{userDetails.firstName}} 
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+
+                        <li class="list-group-item list-group-item-info">Email: {{userDetails.email}} </li>
+                        <li class="list-group-item list-group-item-success">Prezime: {{userDetails.surname}}</li>
+                        <li class="list-group-item list-group-item-danger">Uloga: {{userDetails.roleName}}</li>
+                        <li class="list-group-item list-group-item-info">Grad: {{userDetails.cityName}} </li>
+                        <li class="list-group-item list-group-item-success">Ulica i broj: {{userDetails.street}}  {{userDetails.streetNumber}}</li>
+                        <li class="list-group-item list-group-item-dark">Datum rodjenja: {{userDetails.birthDate | date:'dd.MM.y'}}</li>
+                        <li class="list-group-item list-group-item-primary" *ngIf="userDetails.userSex==0"> male</li>
+                        <li class="list-group-item list-group-item-danger" *ngIf="userDetails.userSex==1"> female</li>
+                        <li class="list-group-item list-group-item-info" *ngIf="userDetails.phoneNumbers!= ''">
+                          <ul> 
+                          <li *ngFor="let x of userDetails.phoneNumbers"> mobilni:  {{x}} </li>
+                        </ul></li>
+                      </ul>
+                </div>
+                <div class="card-footer">
+                    Vrlo zanimljiv korisnik :D
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-sm-14" *ngIf="userDetails.dogNames != ''">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Psi {{userDetails.firstName}} korisnika
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" *ngFor="let x of userDetails.dogNames">
+                        <li class="list-group-item">{{x.name}}</li>
+                      </ul>
+                </div>
+                <div class="card-footer">
+                    Veoma druzeljubivi psi :D
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-sm-14" *ngIf="userDetails.dogNames == ''">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Psi {{userDetails.firstName}} korisnika
+                </div>
+                <div class="card-body">
+                   :'(  :'(  :'(  :'(  :'( 
+                </div>
+                <div class="card-footer">
+                    {{userDetails.firstName}} nema pse, ne znamo zasto je registrovan :D  
+                </div>
+            </div>
+        </div>
+
+        
+  <hr>
+  
+
+    <div class="row">
+        <div class="col-md-12">
+           
+        </div>
+    </div>
+
+    </div>

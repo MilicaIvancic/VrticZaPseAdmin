@@ -1,0 +1,116 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">{{dogDetails.dogName}} <small>{{dogDetails.dogDescription}}</small></h2>
+<hr>
+
+<table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>{{dogDetails.ovnerName}} je  {{dogDetails.dogName}}jev vlasnik. </td>
+        <td>Pripada grupi cvetovi i vaspitacu {{dogDetails.educatorName}}. Veoma je sladak i uzoran pas.</td>
+        <td>@Rase je  {{dogDetails.race}} a cip mu je {{dogDetails.chip}}</td>
+      </tr>
+      
+     
+    </tbody>
+  </table>
+  <hr>
+  <table class="table table-striped" *ngIf="dogDetails.vakcine != ''">
+      <thead>
+          <tr>
+            
+            <th scope="col">Naziv vakcine</th>
+            <th scope="col">Primljena</th>
+          </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor="let item of dogDetails.vakcine" >
+          <td>{{item.nazivVakcine}} </td>
+          <td>{{item.primljena | date:'dd.MM.y'}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-striped" *ngIf="dogDetails.hronicneBolesti != ''">
+        <thead>
+            <tr>
+              
+              <th scope="col">Naziv bolesti</th>
+              <th scope="col">Terapija</th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr *ngFor="let item of dogDetails.hronicneBolesti">
+            <td> {{item.nazivBolesti}}</td>
+            <td>{{item.terapija}}</td>
+           
+          </tr>
+          
+         
+        </tbody>
+      </table>
+      <table class="table table-striped" *ngIf="dogDetails.veterinarskiIzvestaj != ''">
+          <thead>
+              <tr>
+                
+                <th scope="col">Izvestaj</th>
+                <th scope="col">Pocetni preriod</th>
+                <th scope="col">Krajnji period</th>
+              </tr>
+            </thead>
+          <tbody>
+            <tr *ngFor="let item of dogDetails.veterinarskiIzvestaj">
+              <td>{{item.opisIzvestaja}} </td>
+              <td>{{item.kreiranIzvestaj | date:'dd.MM.y'}}</td>
+              <td>{{item.zavrsteakPerioda | date:'dd.MM.y'}}</td>
+            </tr>
+            
+           
+          </tbody>
+        </table>
+
+        <table class="table table-striped" *ngIf="dogDetails.medicinskiIzvestaj != ''">
+            <thead>
+                <tr>
+                  
+                  <th scope="col">Izvestaj</th>
+                  <th scope="col">Datum kreiranja</th>
+                 
+                </tr>
+              </thead>
+            <tbody>
+              <tr *ngFor="let item of dogDetails.medicinskiIzvestaj">
+                <td> {{item.opis }}</td>
+                <td>{{item.datumKreiranja | date:'dd.MM.y'}}</td>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Naziv leka</th>
+                        <th scope="col">Opis leka</th>
+                        <th scope="col">Pocetak primanja</th>
+                        <th scope="col">Kraj primanja</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let a of item.terapija">
+                        <th>{{a.nazivLeka }}</th>
+                        <td>{{a.opisLeka }}</td>
+                        <td>{{a.pocetakPrimanja | date:'dd.MM.y'}}</td>
+                        <td>{{a.krajPrimanja | date:'dd.MM.y'}}</td>
+                      </tr>
+                   
+                    </tbody>
+                  </table>
+              </tr>
+              
+             
+            </tbody>
+          </table>
+
+    <div class="row">
+        <div class="col-md-12">
+           
+        </div>
+    </div>
+
+    </div>

@@ -1,0 +1,55 @@
+<div [@routerTransition]>
+   
+   
+        
+            <div class="card mb-3">
+                <div class="card-header">
+                    Zaposleni Vrtica za pse {{data.count}}
+                </div>
+              <br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button pButton type="button" label="new" class="btn btn-primary" (click)="newEmploye()" > new</button>
+                    </div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Ime</th>
+                            <th scope="col">Prezime</th>
+                            <th scope="col">Pol</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Uloga</th>
+                            <th scope="col">Datum rodjenja</th>
+                            <th scope="col">Opis</th>
+                            <th scope="col">Obrazovanje</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of data.results">
+                            <td> {{item.firstName}} </td>
+                            <td>{{item.surname}}</td>
+                            <td *ngIf="item.userSex==0"> male</td>
+                            <td *ngIf="item.userSex==1"> female</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.roleName}}</td>
+                            <td> {{item.birthDate | date:'dd.MM.y'}} </td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.lastFinishedEducation}}</td>
+                          </tr>
+               
+                        </tbody>
+                      </table>
+
+                      <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(1)" > 1</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(2) "  *ngIf="data.count > 10"> 2</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(3)"  *ngIf="data.count > 20"> 3</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(4)" *ngIf="data.count > 30" > 4</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(5)" *ngIf="data.count > 40" > 5</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(6)" *ngIf="data.count > 50" > 6</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(7)" *ngIf="data.count > 60" > 7</button>
+                </div>
+        
+    </div>
+</div>

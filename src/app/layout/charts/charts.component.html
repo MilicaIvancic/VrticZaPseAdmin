@@ -1,0 +1,66 @@
+<div [@routerTransition]>
+   
+    <div class="row">
+            <div class="col-md-12">
+               
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button pButton type="button" label="new" class="btn btn-primary" (click)="newUser()" > new</button>
+            </div>
+        </div>
+        
+        <hr>
+    <p> Users Count : {{data.count}}</p> 
+    <div class="table-responsive">
+            <table class="table" >
+                    <thead>
+                      <tr>
+                        <th scope="col">User Sex</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Birth Date</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">City</th>
+                        <th scope="col">roleName</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Delete</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                       <tr *ngFor="let item of data.results"> 
+                        
+                       
+                        <td *ngIf="item.userSex==0"> male</td>
+                        <td *ngIf="item.userSex==1"> female</td>
+                        <td>{{item.firstName}} </td>
+                        <td> {{item.surname }} </td>
+                        <td> {{item.birthDate | date:'dd.MM.y'}} </td>
+                       <td> {{item.email}} </td> 
+                        <td> {{item.cityName}} </td>
+                        <td> {{item.roleName}} </td>
+                        <td><button pButton type="button" label="details" class="btn btn-default btn-sm" (click)="details(item.id)" > details</button> </td>
+                        <td> <button Button type="button" label="details" class="btn btn-default btn-sm" (click)="delete(item.id)">
+                             Trash 
+                          </button> </td> 
+                      
+                        
+                       </tr> 
+                    </tbody>
+                  </table>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(1)" > 1</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(2) "  *ngIf="data.count > 10"> 2</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(3)"  *ngIf="data.count > 20"> 3</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(4)" *ngIf="data.count > 30" > 4</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(5)" *ngIf="data.count > 40" > 5</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(6)" *ngIf="data.count > 50" > 6</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(7)" *ngIf="data.count > 60" > 7</button> 
+                
+          </div>
+    
+    
+    </div>
+

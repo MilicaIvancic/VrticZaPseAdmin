@@ -1,0 +1,52 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Psi <small>Tabela svih pasa iz vrtica</small></h2>
+    <div class="row">
+        <div class="col-md-12">
+           
+        </div>
+    </div>
+    <hr>
+   <p> Dog Count : {{data.count}}</p>
+    <div class="table-responsive">
+            <table class="table" >
+                    <thead>
+                      <tr>
+                            
+                        <th scope="col">Dog Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Birth Date</th>
+                        <th scope="col">Owner Name</th>
+                        <th scope="col">Race</th>
+                        <th scope="col">Educator Name</th>
+                        <th scope="col">Details</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of data.results">
+                        
+                       
+                        <td> {{item.dogId}}</td>
+                        <td>{{item.name}} </td>
+                        <td> {{item.birthDate | date:'dd.MM.y'}} </td>
+                        <td> {{item.ownerName}} </td>
+                       <td> {{item.race}} </td> 
+                        <td> {{item.educatorName}} </td>
+                        <td><button pButton type="button" label="details" icon="fa fa-ban" (click)="details(item.dogId)" > details</button> </td>
+                      
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(1)" > 1</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(2) "  *ngIf="data.count > 10"> 2</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(3)"  *ngIf="data.count > 20"> 3</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(4)" *ngIf="data.count > 30" > 4</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(5)" *ngIf="data.count > 40" > 5</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(6)" *ngIf="data.count > 50" > 6</button>
+                  <button pButton type="button" label="2" icon="fa fa-ban" (click)="getDataSecunPage(7)" *ngIf="data.count > 60" > 7</button>
+                
+          </div>
+   
+    
+</div>
